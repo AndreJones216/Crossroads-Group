@@ -8,7 +8,7 @@ $(document).ready(function () {
 $("#getCommits").click(function(){
     $.ajax({
         type: "GET",
-        url: "https://api.github.com/repos/AndreJones216/Crossroads-Group/commits",
+        url: "https://api.github.com/repos/AndreJones216/Crossroads-Group/commits?&per_page=20",
         data: "data",
         success: function (data) {
             console.log(data[0]);
