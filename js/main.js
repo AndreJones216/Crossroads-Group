@@ -27,7 +27,7 @@ function displayCommitInfo(gitCommits){
 
     $.each(gitCommits, function (i, commit) { 
         row +="<tr><td>" + commit.commit.author.name + "</td>";
-        row +="<td>" + commit.commit.message+ "</td>";
+        row +="<td><a href='"+ commit.html_url + "' target='_blank'>" + commit.commit.message+ "</a></td>";
         row +="<td>"+ moment(commit.commit.author.date).format("MMMM Do YYYY h:mma ") + "</td></tr>"
     });
 
