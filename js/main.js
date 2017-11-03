@@ -3,9 +3,16 @@ $(document).ready(function () {
     console.log('App is running');
 });
 
+$body = $("body");
+
+$(document).on({
+    ajaxStart: function() { $body.addClass("loading");    },
+     ajaxStop: function() { $body.removeClass("loading"); }    
+});
 
 
 $("#getCommits").click(function(){
+    $("#loaderImage").show();
     $.ajax({
         type: "GET",
         url: "https://api.github.com/repos/AndreJones216/Crossroads-Group/commits?&per_page=20",
@@ -27,7 +34,7 @@ function displayCommitInfo(gitCommits){
 
     $.each(gitCommits, function (i, commit) { 
         row +="<tr><td>" + commit.commit.author.name + "</td>";
-        row +="<td><a href='"+ commit.html_url + "' target='_blank'>" + commit.commit.message+ "</a></td>";
+        row +="<td><a href='" + commit.html_url + "' target='_blank'>" + commit.commit.message+ "</a></td>";
         row +="<td>"+ moment(commit.commit.author.date).format("MMMM Do YYYY h:mma ") + "</td></tr>"
     });
 
