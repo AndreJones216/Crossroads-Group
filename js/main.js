@@ -1,8 +1,3 @@
-
-$(document).ready(function () {
-    console.log('App is running');
-});
-
 $body = $("body");
 
 $(document).on({
@@ -18,7 +13,6 @@ $("#getCommits").click(function(){
         url: "https://api.github.com/repos/AndreJones216/Crossroads-Group/commits?&per_page=20",
         data: "data",
         success: function (data) {
-            console.log(data[0]);
             displayCommitInfo(data);
         },
         fail: function(e){
